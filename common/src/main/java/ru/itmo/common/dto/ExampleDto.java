@@ -1,4 +1,4 @@
-package ru.itmo.dto;
+package ru.itmo.common.dto;
 
 public class ExampleDto {
 }
