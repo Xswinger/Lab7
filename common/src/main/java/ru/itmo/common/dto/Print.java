@@ -3,6 +3,7 @@ package ru.itmo.common.dto;
 import ru.itmo.common.dto.Message;
 import ru.itmo.common.dto.Route;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Print {
@@ -10,7 +11,7 @@ public class Print {
     public static StringBuilder printContent(Message content) {
         StringBuilder message = new StringBuilder();
         if (content.getContentString() != null) {
-            message.append(content.getContentString());
+            message.append(content.getContentString()).append("\n");
         }
         if (content.getContentRoute() != null) {
             message.append(routeToString(content.getContentRoute()));
@@ -25,17 +26,22 @@ public class Print {
         for (Route route : routes) {
             if (route.getFrom() == null) {
                 print.append(String.format("%-7s %-14s %-7s %-7s %-18s %-7s %-7s %-9s %-10s %-3s%n",
-                        "Id: " + route.getId(), "Name: " + route.getName(), "X: " + route.getCoordinates().getX(), "Y: " +
-                                route.getCoordinates().getY(), "Date: " + route.getCreationDate(),
+                        "Id: " + route.getId(), "Name: " + route.getName(), "X: "
+                                + route.getCoordinates().getX(), "Y: " +
+                                route.getCoordinates().getY(), "Date: "
+                                + new SimpleDateFormat("yyyy-MM-dd").format(route.getCreationDate()),
                         "X: " + route.getTo().getX(), "Y: " + route.getTo().getY(), "Z: " + route.getTo().getZ(),
                         "Name: " + route.getTo().getName(), "Distance: " + route.getDistance()));
             } else {
                 print.append(String.format("%-7s %-14s %-7s %-7s %-18s %-9s %-9s %-7s %-7s %-7s %-7s %-10s %-3s%n",
-                        "Id: " + route.getId(), "Name: " + route.getName(), "X: " + route.getCoordinates().getX(), "Y: " +
-                                route.getCoordinates().getY(), "Date: " + route.getCreationDate(),
+                        "Id: " + route.getId(), "Name: " + route.getName(), "X: "
+                                + route.getCoordinates().getX(), "Y: " +
+                                route.getCoordinates().getY(), "Date: " +
+                                new SimpleDateFormat("yyyy-MM-dd").format(route.getCreationDate()),
                         "X: " + route.getFrom().getX(), "Y: " + route.getFrom().getY(), "Z: " + route.getFrom().getZ(),
                         "X: " + route.getTo().getX(), "Y: " + route.getTo().getY(), "Z: " +
-                                route.getTo().getZ(), "Name: " + route.getTo().getName(), "Distance " + route.getDistance()));
+                                route.getTo().getZ(), "Name: " + route.getTo().getName(), "Distance "
+                                + route.getDistance()));
             }
         }
         return print;
