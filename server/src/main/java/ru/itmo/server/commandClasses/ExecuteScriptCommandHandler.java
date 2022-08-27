@@ -26,8 +26,14 @@ public class ExecuteScriptCommandHandler implements CommandHandler {
      * @throws IOException - все ошибки, возможные при исполнении скрипта
      */
     public Message executeManual(int userId, Command command) throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(FileUtil.filePath(command.getParameterOfCommand()));
+        InputStreamReader inputStreamReader;
+        try {
+            inputStreamReader = new InputStreamReader(FileUtil.filePath(command.getParameterOfCommand()));
+        } catch (IllegalArgumentException exception) {
+            return new Message(command.getUserUUID(),true, "File not found");
+        }
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
         final Command[] scriptCommand = new Command[1];
         StringBuilder message = new StringBuilder();
         bufferedReader.lines().forEachOrdered(line -> {
@@ -55,7 +61,7 @@ public class ExecuteScriptCommandHandler implements CommandHandler {
             }
         });
         logger.warn("Script execution completed");
-        return new Message(command.getUserUUID(),true, "Script execution completed\n" + message);
+        return new Message(command.getUserUUID(),true, "Script execution completed\n\n" + message);
     }
 
     @Override

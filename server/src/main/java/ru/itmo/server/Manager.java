@@ -13,7 +13,7 @@ public class Manager {
     private static final int SERVER_PORT = 63220;
     private static final Logger logger = LoggerFactory.getLogger(Manager.class);
 
-    public static void main(String[] args) throws IOException, SQLException, URISyntaxException {
+    public static void main(String[] args) throws IOException, SQLException {
         logger.info("Starting Server...");
         Invoker.getInstance().initializeCommands();
         DatabaseConnector.getInstance().initializeDatabase();

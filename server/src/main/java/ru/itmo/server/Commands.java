@@ -79,6 +79,12 @@ public enum Commands {
                 commands.commandShortName.equals(command.getNameOfCommand())).findFirst().get().commandShortName;
     }
 
+    public static Commands[] getPublicCommand() {
+        return new Commands[]{ADD, ADD_IF_MAX, CLEAR, EXECUTE_SCRIPT, FILTER_BY_DISTANCE,
+                GROUP_COUNTING_BY_NAME, HELP, HISTORY, INFO, PRINT_DESCENDING, REMOVE_BY_ID, REMOVE_GREATER, SHOW,
+                UPDATE_ID};
+    }
+
     /**
      * Метод для получения описания команды
      *

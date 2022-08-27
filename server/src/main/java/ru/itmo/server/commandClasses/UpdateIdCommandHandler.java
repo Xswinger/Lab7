@@ -45,11 +45,10 @@ public class UpdateIdCommandHandler implements CommandHandler {
     }
 
     private Message getMessages(long id, int userId, Route updatedRoute, Command command) throws SQLException {
-        String backMessage = "Element with id " + id + " not found";
+        String backMessage = "Element with id " + id + " not found or not authorized to update";
         Set<Long> userRoute = RoutesDao.getInstance().FindRoutesOfUser(userId);
         if (userRoute.contains(id)){
             RouteManager.getInstance().updateRoute(id, userId, updatedRoute);
-            RoutesDao.getInstance().updateRouteById(id, userId, updatedRoute);
             logger.info("Command completed: route updated");
             return new Message(command.getUserUUID(),true, "Element update successfully");
         }

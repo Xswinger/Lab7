@@ -36,7 +36,7 @@ public class CreateNewUserHandler implements CommandHandler {
         String string;
         Message message;
         if (UsersDao.getInstance().addUser(command.getLogin(), command.getPassword()) == -1) {
-            string = "Cannot register new user";
+            string = "Cannot register this user (user already register)";
             message = new Message(command.getUserUUID(), false, string);
         }
         else {

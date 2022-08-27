@@ -1,8 +1,5 @@
 package ru.itmo.common.dto;
 
-import ru.itmo.common.dto.Message;
-import ru.itmo.common.dto.Route;
-
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -14,9 +11,8 @@ public class Print {
             message.append(content.getContentString()).append("\n");
         }
         if (content.getContentRoute() != null) {
-            message.append(routeToString(content.getContentRoute()));
+            message.append(routeToString(content.getContentRoute())).append("\n");
         }
-        message.append("\n");
         return message;
     }
 
