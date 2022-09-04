@@ -33,12 +33,11 @@ public enum ClientCommands {
     }
 
     /**
-     * Метод для получения имени команды
+     * Геттер для получения имени команды
      *
-     * @param nameCommand - имя команды
      * @return Имя команды
      */
-    public static String getNameCommand(ClientCommands nameCommand) {
-        return nameCommand.commandName;
+    public String getCommandName() {
+        return commandName;
     }
 }

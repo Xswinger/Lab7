@@ -67,11 +67,10 @@ public enum Commands {
     /**
      * Метод для получения имени команды
      *
-     * @param nameCommand - имя команды
      * @return Имя команды
      */
-    public static String getFullNameCommand(Commands nameCommand) {
-        return nameCommand.commandFullName;
+    public String getCommandFullName() {
+        return commandFullName;
     }
 
     public static String getShortNameCommand(Command command) {
@@ -88,10 +87,9 @@ public enum Commands {
     /**
      * Метод для получения описания команды
      *
-     * @param command - описание команды
      * @return Описание команды
      */
-    public static String getDescription(Commands command) {
-        return command.commandsDescription;
+    public String getCommandsDescription() {
+        return commandsDescription;
     }
 }

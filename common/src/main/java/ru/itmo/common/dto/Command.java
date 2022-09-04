@@ -122,7 +122,7 @@ public class Command implements Serializable {
         }
     }
 
-    public static boolean checkCommand(String commandName) {
+    public static boolean checkCommand() {
         return Arrays.stream(ClientCommands.values()).anyMatch(commands -> true);
     }
 

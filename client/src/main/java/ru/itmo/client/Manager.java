@@ -17,7 +17,7 @@ public class Manager {
         System.out.println("Start client...");
         try {
             while (true) {
-                startConnection();
+                Client.getInstance().channelInitialize();
                 System.out.println("Trying reconnect?(Y/N)");
                 String answer = new Scanner(System.in).nextLine();
                 if (answer.equals("N")) {
@@ -32,10 +32,5 @@ public class Manager {
         } catch (IOException | ClassNotFoundException | InterruptedException exception) {
             System.out.println(exception.getMessage());
         }
-    }
-
-    //Запуск канала
-    private static void startConnection() throws IOException, ClassNotFoundException, InterruptedException {
-        Client.channelInitialize();
     }
 }

@@ -7,7 +7,7 @@ import ru.itmo.common.dto.Route;
 //Меняет поля выбранного объекта на поля отправленного объекта
 public class ChangeFieldValue {
     private static final Logger logger = LoggerFactory.getLogger(ChangeFieldValue.class);
-    public static void ChangerFieldValue(Route editableRoute, Route newRoute, long id) {
+    public static void changerFieldValue(Route editableRoute, Route newRoute, long id) {
         try {
             if (newRoute.getFrom() != null) {
                 editableRoute.setId(id);

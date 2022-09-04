@@ -53,7 +53,7 @@ public class RouteManager {
         try {
             if (routes.stream().anyMatch(route -> id == route.getId())) {
                 RoutesDao.getInstance().updateRouteById(id, userId, updatedRoute);
-                ChangeFieldValue.ChangerFieldValue(routes.stream().filter
+                ChangeFieldValue.changerFieldValue(routes.stream().filter
                         (route -> id == route.getId()).findFirst().get(), updatedRoute, id);
             }
         } finally {

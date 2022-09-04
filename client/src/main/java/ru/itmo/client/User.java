@@ -24,7 +24,7 @@ public class User {
         System.out.println("Input name:");
         String name = new Scanner(System.in).nextLine();
         if (!name.trim().equals("")) {
-            User.getInstance().setName(name);
+            this.setName(name);
         } else {
             System.out.println("Wrong user name format");
             inputName();
@@ -35,9 +35,9 @@ public class User {
         System.out.println("Input password(Enter, if not password):");
         String password = new Scanner(System.in).nextLine();
         if (!password.trim().equals("")) {
-            User.getInstance().setPassword(password);
+            this.setPassword(password);
         } else {
-            User.getInstance().setPassword(null);
+            this.setPassword(null);
         }
     }
 

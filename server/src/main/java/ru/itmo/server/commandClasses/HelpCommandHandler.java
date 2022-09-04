@@ -25,8 +25,8 @@ public class HelpCommandHandler implements CommandHandler {
     public Message executeManual(int userId, Command command) throws IOException {
         StringBuilder arrayOfMessage = new StringBuilder();
         Arrays.stream(Commands.getPublicCommand()).forEachOrdered(commands ->
-                arrayOfMessage.append(Commands.getFullNameCommand(commands)).append(" : ")
-                        .append(Commands.getDescription(commands)).append("\n"));
+                arrayOfMessage.append(commands.getCommandFullName()).append(" : ")
+                        .append(commands.getCommandsDescription()).append("\n"));
         logger.info("Command completed");
         return new Message(command.getUserUUID(),true, arrayOfMessage.toString());
     }

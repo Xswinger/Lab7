@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.itmo.server.exceptions.DatabaseException;
 import ru.itmo.server.utils.FileUtil;
+import ru.itmo.server.utils.PropertiesManager;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,22 +21,17 @@ import java.util.stream.Collectors;
 
 public class DatabaseConnector {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseConnector.class);
-    private static final String DATABASE_URL;
-    private static final String USER;
-    private static final String PASSWORD;
     private static final Connection CONNECTION;
 
     static {
         try {
             logger.info("Connection to database...");
-            Properties properties = new Properties();
-            properties.load(FileUtil.filePath("data.properties"));
-            DATABASE_URL = properties.getProperty("url");
-            USER = properties.getProperty("name");
-            PASSWORD = properties.getProperty("password");
+            final String DATABASE_URL = PropertiesManager.getInstance().getProperties().getProperty("url");
+            final String USER = PropertiesManager.getInstance().getProperties().getProperty("name");
+            final String PASSWORD = PropertiesManager.getInstance().getProperties().getProperty("password");
             CONNECTION = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);
             logger.info("Connection to database successfully");
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
             logger.warn("Error when try connect to database");
             throw new RuntimeException(e);
         }
