@@ -11,10 +11,10 @@ public class User {
         }
         return instance;
     }
-    private static boolean creatingNewUser = false;
-    private static boolean registrationStatus = false;
-    private static String name;
-    private static String password;
+    private boolean creatingNewUser = false;
+    private boolean registrationStatus = false;
+    private String name;
+    private String password;
 
     public String getName() {
         return name;
@@ -46,11 +46,11 @@ public class User {
     }
 
     public void setCreatingNewUser(boolean creatingNewUser) {
-        User.creatingNewUser = creatingNewUser;
+        this.creatingNewUser = creatingNewUser;
     }
 
     public void setName(String name) {
-        User.name = name;
+        this.name = name;
     }
 
     public String getPassword() {
@@ -58,7 +58,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        User.password = password;
+        this.password = password;
     }
 
     public boolean isRegistrationStatus() {
@@ -66,6 +66,6 @@ public class User {
     }
 
     public void setRegistrationStatus(boolean registrationStatus) {
-        User.registrationStatus = registrationStatus;
+        this.registrationStatus = registrationStatus;
     }
 }
