@@ -26,9 +26,9 @@ public class LogInHandler implements CommandHandler {
     @Override
     public Message executeManual(int userId, Command command) throws IOException, SQLException {
         if (userId == -1){
-            return new Message(command.getUserUUID(), false, "Wrong login or password");
+            return new Message(command.getUserUUID(), false, "\nWrong login or password");
         } else {
-            return new Message(command.getUserUUID(), true, "Login successful\nRoutes upload");
+            return new Message(command.getUserUUID(), true, "\nLogin successful\nRoutes upload");
         }
     }
 }

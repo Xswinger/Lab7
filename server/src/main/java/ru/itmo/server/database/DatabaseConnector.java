@@ -7,16 +7,9 @@ import ru.itmo.server.utils.FileUtil;
 import ru.itmo.server.utils.PropertiesManager;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Properties;
 import java.util.stream.Collectors;
 
 public class DatabaseConnector {

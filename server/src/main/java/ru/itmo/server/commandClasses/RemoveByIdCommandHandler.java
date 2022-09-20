@@ -38,7 +38,7 @@ public class RemoveByIdCommandHandler implements CommandHandler {
         } else {
             logger.info("Command completed: user does not have permission to delete this ");
             return new Message(command.getUserUUID(),true, "Not have permission to " +
-                    "delete this route");
+                    "delete this route or route does not exist");
         }
     }
 

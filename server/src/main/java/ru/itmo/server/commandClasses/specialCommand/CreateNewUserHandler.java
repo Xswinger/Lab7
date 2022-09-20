@@ -36,11 +36,11 @@ public class CreateNewUserHandler implements CommandHandler {
         String string;
         Message message;
         if (UsersDao.getInstance().addUser(command.getLogin(), command.getPassword()) == -1) {
-            string = "Cannot register this user (user already register)";
+            string = "\nCannot register this user (user already register)";
             message = new Message(command.getUserUUID(), false, string);
         }
         else {
-            string = "User registered successfully";
+            string = "\nUser registered successfully";
             RouteManager.getInstance();
             message = new Message(command.getUserUUID(), true, string);
         }

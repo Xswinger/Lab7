@@ -50,7 +50,6 @@ public class Server {
         Command command = (Command) Command.deserialize(inputPacket.getData());
         logger.info("New request received from the client at address: {}, port: {}", senderAddress.getHostAddress(), clientPort);
 
-        // Handle command and send result message
         Callable<Message> processingRequest = () -> {
             try {
                 return Invoker.getInstance().executeCommandManual(

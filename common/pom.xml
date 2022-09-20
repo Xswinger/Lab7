@@ -14,5 +14,12 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.xenoamess</groupId>
+            <artifactId>nashorn</artifactId>
+            <version>jdk8u265-b01-x3</version>
+        </dependency>
+    </dependencies>
 
 </project>

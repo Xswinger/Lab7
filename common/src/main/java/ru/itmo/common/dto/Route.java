@@ -324,6 +324,13 @@ public class Route implements Serializable, Comparable {
         return Objects.hash(id);
     }
     public long getSize() {
-        return ObjectSizeCalculator.getObjectSize(this);
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(this);
+            return byteArrayOutputStream.size();
+        } catch (IOException ex) {
+            return 0;
+        }
     }
 }

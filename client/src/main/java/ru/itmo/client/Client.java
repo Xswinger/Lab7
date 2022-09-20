@@ -112,10 +112,6 @@ public class Client {
         ByteBuffer bufferSend = ByteBuffer.wrap(Command.serialize(sendingClass));
         datagramChannel.write(bufferSend);
         Message message = waitingReceive(bufferReceive);
-        UUID uuid1 = message.getUserUUID();
-//        while (!uuid1.equals(userUUID)){
-            message = waitingReceive(bufferReceive);
-//        }
         bufferReceive.clear();
         return message;
     }
@@ -145,11 +141,8 @@ public class Client {
                 System.out.println("Fail to connect (port is unreachable)\n");
                 continue;
             }
-            UUID uuid = ((Message) Message.deserialize(bufferReceive.array())).
-                    getUserUUID();
             if (IntStream.range(0, bufferReceive.array().length).parallel().allMatch(j ->
                     bufferReceive.array()[j] == 0)
-//                    || !(uuid.equals(userUUID))
             ) {
                 System.out.println("Fail to connect (buffer is empty)\n");
             } else {
